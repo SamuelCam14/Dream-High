@@ -1,0 +1,44 @@
+img.header-logo {
+    width: 175px;
+}
+
+a.btn {
+    border-radius: 3px !important;
+}
+
+button.btn.btn-sm.btn-outline-secondary>a {
+    text-decoration: none;
+    color: #6c757d;
+}
+
+button.btn.btn-sm.btn-outline-secondary>a:hover {
+    color: #fff;
+}
+
+/* FOOTER CSS */
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    align-items: center;
+    height: 100px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-brand img {
+    width: 32px;
+}
+
+.footer-brand p {
+    margin: 0;
+}
+
+.card.shadow-sm img {
+    cursor: pointer;
+}
