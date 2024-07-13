@@ -36,7 +36,10 @@ const productos = [
     ],
     imagenes: [
       "../Assets/High Stakes/JGL/FullSizeRender-_8_.webp",
-      // ... más imágenes ...
+      "../Assets/High Stakes/JGL/IMG_4764.webp",
+      "../Assets/High Stakes/JGL/IMG_4765.webp",
+      "../Assets/High Stakes/JGL/IMG_4766.webp",
+      "../Assets/High Stakes/JGL/IMG_4768.webp"
     ],
     linkCompra: "https://wa.me/message/M6VLN4VURGDIF1",
     stock: 1,
@@ -390,7 +393,7 @@ const productos = [
     imagen: "../Assets/High Stakes/Risk Rich/FullSizeRender (16).webp",
     precio: "$850.00",
     descripcion:
-      "¿Estás listo para apostar por el éxito? La gorra RISK RICH es para aquellos que se atreven a jugar en las grandes ligas. Fabricada con una elegante visera de gamuza, esta gorra es una declaración de estilo y ambición. El logo frontal en bordado 3D grita audacia, mientras que los detalles laterales te recuerdan que la fortuna favorece a los valientes. El número 777 en relieve en la parte inferior no solo es un guiño a la suerte, sino un recordatorio de confiar en tu instinto para alcanzar la riqueza. RISK RICH no es solo una gorra, es una mentalidad. ¿Te atreves a llevarla?",
+      "¿Estás listo para apostar por el éxito? La gorra RISK RICH es para aquellos que se atreven a jugar en las grandes ligas. Fabricada con una elegante visera de gamuza, esta gorra es una declaración de estilo y ambición.",
     infoAdicional: [
       "Marca: High Stake.",
       "Colores disponibles: Rojo.",
@@ -428,7 +431,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ulInfo.appendChild(li);
     });
 
-    document.getElementById("buy-button").href = producto.linkCompra;
+    document.getElementById("buy-button").href = "https://wa.link/l8ff9a";
 
     const carouselInner = document.querySelector(".carousel-inner");
     producto.imagenes.forEach((img, index) => {
