@@ -125,7 +125,10 @@ const productos = [
     ],
     imagenes: [
       "../Assets/JC Hats/Born to Spend Negra c Rojo/FullSizeRender-_12_.webp",
-      // ... más imágenes ...
+      "../Assets/JC Hats/Born to Spend Negra c Rojo/IMG_4734.webp",
+      "../Assets/JC Hats/Born to Spend Negra c Rojo/IMG_4735.webp",
+      "../Assets/JC Hats/Born to Spend Negra c Rojo/IMG_4739.webp",
+      "../Assets/JC Hats/Born to Spend Negra c Rojo/IMG_4742.webp",
     ],
     linkCompra: "https://wa.me/message/M6VLN4VURGDIF1",
     stock: 1,
