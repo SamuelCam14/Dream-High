@@ -52,7 +52,7 @@ footer .container {
     justify-content: center;
     align-items: center;
     font: 600 100%/1 'Old London', sans-serif;
-    height: 100dvh;
+    height: 100vh;
     overflow: hidden;
     background-image: url('./Assets/fondo.webp');
     background-size: cover;
