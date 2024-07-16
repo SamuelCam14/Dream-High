@@ -88,3 +88,29 @@ window.addEventListener('scroll', () => {
 document.addEventListener("DOMContentLoaded", function () {
   cargarProductos();
 });
+
+// HERO CONTAINER
+const heading = document.querySelector(".heading");
+const headingSplitText = new SplitText(heading, { type: "chars" });
+const headingChars = headingSplitText.chars;
+
+gsap.from(headingChars, {
+  filter: "blur(0.12em)",
+  stagger: {
+    from: "left",
+    each: 0.07
+  },
+  duration: i => 0.7 + i * 0.15,
+  ease: "power2.inOut"
+});
+
+gsap.from(headingChars, {
+  xPercent: i => (i + 1) * 15,
+  opacity: 0,
+  stagger: {
+    from: "left",
+    each: 0.07
+  },
+  duration: i => 0.7 + i * 0.15,
+  ease: "power2.out"
+}, "<");
