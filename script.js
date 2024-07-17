@@ -1,3 +1,32 @@
+// FUNCION STICKY NAVBAR
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.getElementById('main-nav');
+  const hero = document.querySelector('.hero-container');
+  let navbarHeight = navbar.offsetHeight;
+  let heroBottom;
+
+  function updateHeroBottom() {
+    heroBottom = hero.offsetTop + hero.offsetHeight;
+  }
+
+  function handleScroll() {
+    let scrollPosition = window.pageYOffset;
+
+    if (scrollPosition > heroBottom - navbarHeight) {
+      navbar.classList.add('sticky');
+    } else {
+      navbar.classList.remove('sticky');
+    }
+  }
+
+  // Actualizar heroBottom cuando la página se carga y cuando se redimensiona
+  window.addEventListener('load', updateHeroBottom);
+  window.addEventListener('resize', updateHeroBottom);
+
+  // Manejar el scroll
+  window.addEventListener('scroll', handleScroll);
+});
+
 // Definición de la clase Producto
 class Producto {
   constructor(id, nombre, imagen, stock = 1) {
