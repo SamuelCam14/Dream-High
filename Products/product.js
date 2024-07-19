@@ -20,7 +20,7 @@ const productos = [
       "../Assets/High Stakes/Café/Exportación/IMG_4657.jpg",
     ],
     linkCompra: "https://wa.me/message/M6VLN4VURGDIF1",
-    stock: 1,
+    stock: 0,
   },
   {
     id: 2,
@@ -134,7 +134,7 @@ const productos = [
       "../Assets/JC Hats/Born to Spend Negra c Rojo/IMG_4742.webp",
     ],
     linkCompra: "https://wa.me/message/M6VLN4VURGDIF1",
-    stock: 1,
+    stock: 0,
   },
   {
     id: 7,
@@ -341,7 +341,7 @@ const productos = [
       "../Assets/High Stakes/All Eyez On Me - Black/IMG_4778.webp"
     ],
     linkCompra: "https://wa.me/message/M6VLN4VURGDIF1",
-    stock: 1,
+    stock: 0,
   },
   {
     id: 16,
@@ -363,7 +363,7 @@ const productos = [
       "../Assets/High Stakes/Sinner Lover/IMG_4783.webp"
     ],
     linkCompra: "https://wa.me/message/M6VLN4VURGDIF1",
-    stock: 1,
+    stock: 0,
   },
   {
     id: 17,
@@ -385,7 +385,7 @@ const productos = [
       "../Assets/High Stakes/Bipolar/IMG_4791.webp"
     ],
     linkCompra: "https://wa.me/message/M6VLN4VURGDIF1",
-    stock: 1,
+    stock: 0,
   },
   {
     id: 18,
@@ -431,7 +431,17 @@ document.addEventListener("DOMContentLoaded", function () {
       ulInfo.appendChild(li);
     });
 
-    document.getElementById("buy-button").href = "https://wa.link/l8ff9a";
+    const buyButton = document.getElementById("buy-button");
+    if (producto.stock === 0) {
+      buyButton.textContent = "AGOTADO!";
+      buyButton.href = "#"; // Removemos el link de compra
+      buyButton.classList.add("btn-danger"); // Cambiamos el color a rojo
+      buyButton.classList.remove("btn-primary"); // Removemos la clase original si existe
+      buyButton.style.pointerEvents = "none"; // Deshabilitamos interacciones
+    } else {
+      buyButton.textContent = "Comprar";
+      buyButton.href = "https://wa.link/l8ff9a";
+    }
 
     const carouselInner = document.querySelector(".carousel-inner");
     producto.imagenes.forEach((img, index) => {
@@ -458,7 +468,8 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
       document.body.appendChild(modal);
     });
-  } else {
+  }
+  else {
     // Manejar el caso en que no se encuentra el producto
     document.querySelector(".product-name").textContent =
       "Producto no encontrado";
