@@ -87,7 +87,25 @@ footer .container {
 }
 
 /* HERO SECTION */
-@import url('https://fonts.cdnfonts.com/css/old-london');
+@font-face {
+    font-family: 'Old London';
+    src: url('../fonts/OldLondon.woff2') format('woff2'),
+        url('../fonts/OldLondon.woff') format('woff'),
+        url('../fonts/OldLondon.ttf') format('truetype'),
+        url('../fonts/Olondon_.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Old London Alternate';
+    src: url('../fonts/OldLondonAlternate.woff2') format('woff2'),
+        url('../fonts/OldLondonAlternate.woff') format('woff'),
+        url('../fonts/OldLondonAlternate.ttf') format('truetype'),
+        url('../fonts/Olondona_.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .hero-container {
     display: flex;
@@ -100,6 +118,14 @@ footer .container {
     background-image: url('./Assets/fondo.webp');
     background-size: cover;
     background-position: center;
+}
+
+.heading {
+    font-family: 'Old London', serif;
+}
+
+.alternate-heading {
+    font-family: 'Old London Alternate', serif;
 }
 
 .hero-container::before {
