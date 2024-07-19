@@ -44,15 +44,15 @@ function viewProduct(id) {
 
 // Array de productos utilizando la clase Producto
 const productos = [
-  new Producto(16, "SINNER LOVER", "./Assets/High Stakes/Sinner Lover/FullSizeRender_(17)-transformed.webp"),
-  new Producto(17, "BIPOLAR", "./Assets/High Stakes/Bipolar/FullSizeRender_(15)-transformed.webp"),
+  new Producto(16, "SINNER LOVER", "./Assets/High Stakes/Sinner Lover/FullSizeRender_(17)-transformed.webp", 0),
+  new Producto(17, "BIPOLAR", "./Assets/High Stakes/Bipolar/FullSizeRender_(15)-transformed.webp", 0),
   new Producto(18, "RISK RICH", "./Assets/High Stakes/Risk Rich/FullSizeRender_(16)-transformed.webp"),
-  new Producto(1, "ALL EYEZ ON ME - BROWN", "./Assets/High Stakes/Café/FullSizeRender-_9_-transformed.webp"),
+  new Producto(1, "ALL EYEZ ON ME - BROWN", "./Assets/High Stakes/Café/FullSizeRender-_9_-transformed.webp", 0),
   new Producto(2, "JGL - 701", "./Assets/High Stakes/JGL/FullSizeRender-_8_-transformed.webp"),
-  new Producto(15, "ALL EYEZ ON ME - BLACK", "./Assets/High Stakes/All Eyez On Me - Black/FullSizeRender_(14)-transformed.webp"),
+  new Producto(15, "ALL EYEZ ON ME - BLACK", "./Assets/High Stakes/All Eyez On Me - Black/FullSizeRender_(14)-transformed.webp", 0),
   new Producto(4, "SPEND MONEY CAMO", "./Assets/JC Hats/Born to Spend Camuflage/FullSizeRender-_7_-transformed.webp"),
   new Producto(7, "SPEND MONEY GREEN", "./Assets/JC Hats/Spend Money Green/FullSizeRender-_11_-transformed.webp"),
-  new Producto(6, "SPEND MONEY BLACK", "./Assets/JC Hats/Born to Spend Negra c Rojo/FullSizeRender-_12_-transformed.webp"),
+  new Producto(6, "SPEND MONEY BLACK", "./Assets/JC Hats/Born to Spend Negra c Rojo/FullSizeRender-_12_-transformed.webp", 0),
   new Producto(8, "SPEND MONEY GRAY BLUE", "./Assets/JC Hats/Spend Money Gray Blue/FullSizeRender_(1)-transformed.webp"),
   new Producto(5, "SPEND MONEY BLACK MESH", "./Assets/JC Hats/Born to Spend Malla Negra/FullSizeRender-_13_-transformed.webp"),
   new Producto(9, "SPEND MONEY BEIGE GREEN", "./Assets/JC Hats/Spend Money Beige Green/FullSizeRender-_10_-transformed.webp"),
@@ -66,7 +66,8 @@ const productos = [
 
 // Función para generar el HTML de un producto
 function generarProductoHTML(producto) {
-  return `
+  if (producto.stock >= 1) {
+    return `
     <div class="col">
       <div class="card shadow-sm">
         <img src="${producto.imagen}" alt="${producto.nombre}" onclick="viewProduct(${producto.id})"/>
@@ -84,6 +85,27 @@ function generarProductoHTML(producto) {
       </div>
     </div>
   `;
+  }
+  else {
+    return `
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="${producto.imagen}" alt="${producto.nombre}" onclick="viewProduct(${producto.id})"/>
+        <div class="card-body">
+          <p class="card-text">AGOTADO!</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button onclick="viewProduct(${producto.id})" type="button" class="btn btn-sm btn-outline-secondary">
+                Ver más
+              </button>
+            </div>
+            <small class="text-body-secondary">${producto.stock} Stock</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  }
 }
 
 // Variables para la carga progresiva
@@ -131,3 +153,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }, index * 70);
   });
 });
+
