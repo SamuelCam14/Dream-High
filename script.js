@@ -1,27 +1,26 @@
-// FUNCION STICKY NAVBAR
+// Sticky Nav
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.getElementById('main-nav');
   const hero = document.querySelector('.hero-container');
-  let navbarHeight = navbar.offsetHeight;
-  let heroBottom;
-
-  function updateHeroBottom() {
-    heroBottom = hero.offsetTop + hero.offsetHeight;
-  }
+  let navbarOffset = navbar.offsetTop;
 
   function handleScroll() {
     let scrollPosition = window.pageYOffset;
 
-    if (scrollPosition > heroBottom - navbarHeight) {
+    if (scrollPosition >= navbarOffset) {
       navbar.classList.add('sticky');
     } else {
       navbar.classList.remove('sticky');
     }
   }
 
-  // Actualizar heroBottom cuando la página se carga y cuando se redimensiona
-  window.addEventListener('load', updateHeroBottom);
-  window.addEventListener('resize', updateHeroBottom);
+  // Actualizar navbarOffset cuando la página se carga y cuando se redimensiona
+  function updateNavbarOffset() {
+    navbarOffset = hero.offsetHeight;
+  }
+
+  window.addEventListener('load', updateNavbarOffset);
+  window.addEventListener('resize', updateNavbarOffset);
 
   // Manejar el scroll
   window.addEventListener('scroll', handleScroll);
@@ -46,7 +45,7 @@ function viewProduct(id) {
 const productos = [
   new Producto(16, "SINNER LOVER", "./Assets/High Stakes/Sinner Lover/FullSizeRender_(17)-transformed.webp", 0),
   new Producto(17, "BIPOLAR", "./Assets/High Stakes/Bipolar/FullSizeRender_(15)-transformed.webp", 0),
-  new Producto(18, "RISK RICH", "./Assets/High Stakes/Risk Rich/FullSizeRender_(16)-transformed.webp"),
+  new Producto(18, "RISK RICH", "./Assets/High Stakes/Risk Rich/FullSizeRender_(16)-transformed.webp", 3),
   new Producto(1, "ALL EYEZ ON ME - BROWN", "./Assets/High Stakes/Café/FullSizeRender-_9_-transformed.webp", 0),
   new Producto(2, "JGL - 701", "./Assets/High Stakes/JGL/FullSizeRender-_8_-transformed.webp"),
   new Producto(15, "ALL EYEZ ON ME - BLACK", "./Assets/High Stakes/All Eyez On Me - Black/FullSizeRender_(14)-transformed.webp", 0),
@@ -66,11 +65,15 @@ const productos = [
 
 // Función para generar el HTML de un producto
 function generarProductoHTML(producto) {
-  if (producto.stock >= 1) {
-    return `
+  const agotadoOverlay = producto.stock === 0 ? '<div class="agotado-overlay">Sold Out!</div>' : '';
+
+  return `
     <div class="col">
       <div class="card shadow-sm">
-        <img src="${producto.imagen}" alt="${producto.nombre}" onclick="viewProduct(${producto.id})"/>
+        <div class="product-image-container">
+          <img src="${producto.imagen}" alt="${producto.nombre}" onclick="viewProduct(${producto.id})"/>
+          ${agotadoOverlay}
+        </div>
         <div class="card-body">
           <p class="card-text">${producto.nombre}</p>
           <div class="d-flex justify-content-between align-items-center">
@@ -85,27 +88,6 @@ function generarProductoHTML(producto) {
       </div>
     </div>
   `;
-  }
-  else {
-    return `
-    <div class="col">
-      <div class="card shadow-sm">
-        <img src="${producto.imagen}" alt="${producto.nombre}" onclick="viewProduct(${producto.id})"/>
-        <div class="card-body">
-          <p class="card-text">AGOTADO!</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button onclick="viewProduct(${producto.id})" type="button" class="btn btn-sm btn-outline-secondary">
-                Ver más
-              </button>
-            </div>
-            <small class="text-body-secondary">${producto.stock} Stock</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-  }
 }
 
 // Variables para la carga progresiva
