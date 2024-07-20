@@ -2,27 +2,30 @@
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.getElementById('main-nav');
   const hero = document.querySelector('.hero-container');
+  const navbarSpacer = document.getElementById('navbar-spacer');
   let navbarOffset = navbar.offsetTop;
+  let navbarHeight = navbar.offsetHeight;
 
   function handleScroll() {
     let scrollPosition = window.pageYOffset;
 
     if (scrollPosition >= navbarOffset) {
       navbar.classList.add('sticky');
+      navbarSpacer.style.height = `${navbarHeight}px`;
     } else {
       navbar.classList.remove('sticky');
+      navbarSpacer.style.height = '0px';
     }
   }
 
-  // Actualizar navbarOffset cuando la página se carga y cuando se redimensiona
-  function updateNavbarOffset() {
+  function updateMeasurements() {
     navbarOffset = hero.offsetHeight;
+    navbarHeight = navbar.offsetHeight;
+    handleScroll();
   }
 
-  window.addEventListener('load', updateNavbarOffset);
-  window.addEventListener('resize', updateNavbarOffset);
-
-  // Manejar el scroll
+  window.addEventListener('load', updateMeasurements);
+  window.addEventListener('resize', updateMeasurements);
   window.addEventListener('scroll', handleScroll);
 });
 
