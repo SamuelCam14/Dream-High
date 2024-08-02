@@ -47,6 +47,10 @@ button.btn.btn-sm.btn-outline-secondary>a:hover {
     align-items: center;
 }
 
+.card-text {
+    text-transform: uppercase;
+}
+
 @media (max-width: 767.98px) {
     .navbar .container {
         flex-direction: column;
