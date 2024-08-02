@@ -437,7 +437,7 @@ const productos = [
     id: 20,
     nombre: "CLOVER red heart",
     imagen: "../Assets/Clover/Clover Red Heart/FullSizeRender (3).webp",
-    precio: "$1,200.00",
+    precio: "$1,100.00",
     descripcion:
       "Presenta nuestra gorra exclusiva 'Clover Red', una pieza de edición limitada que combina estilo urbano con un diseño audaz. Esta gorra destaca por su llamativo color rojo y su bordado distintivo.",
     infoAdicional: [
@@ -461,7 +461,7 @@ const productos = [
     id: 21,
     nombre: "CLOVER with love",
     imagen: "../Assets/Clover/From Clover With Love/IMG-F.webp",
-    precio: "$1,200.00",
+    precio: "$1,100.00",
     descripcion:
       "Descubre nuestra gorra 'From Clover with Love', una pieza elegante que fusiona el estilo clásico con un toque moderno. Este diseño en negro profundo con bordado blanco es perfecto para aquellos que aprecian la sutileza y la sofisticación en su vestimenta.",
     infoAdicional: [
@@ -485,7 +485,7 @@ const productos = [
     id: 22,
     nombre: "CLOVER LA",
     imagen: "../Assets/Clover/LA Clover/FullSizeRender.webp",
-    precio: "$1,200.00",
+    precio: "$1,100.00",
     descripcion:
       "Presentamos nuestra gorra 'LA Clover', una pieza única que combina elegancia y extravagancia. Con su diseño negro y detalles brillantes, esta gorra es perfecta para quienes buscan destacar en su estilo.",
     infoAdicional: [
@@ -509,7 +509,7 @@ const productos = [
     id: 23,
     nombre: "CLOVER tumbados club",
     imagen: "../Assets/Clover/Tumbados Club/FullSizeRender (1).webp",
-    precio: "$1,200.00",
+    precio: "$1,100.00",
     descripcion:
       "Introduce nuestra gorra 'Tumbados Club', una pieza única que fusiona el estilo tumbado con un toque de lujo y originalidad. Esta gorra negra con detalles en rojo es perfecta para aquellos que buscan expresar su personalidad.",
     infoAdicional: [
@@ -533,7 +533,7 @@ const productos = [
     id: 24,
     nombre: "corridos tumbados",
     imagen: "../Assets/MC/CT/FullSizeRender (2).webp",
-    precio: "$1,200.00",
+    precio: "$900.00",
     descripcion:
       "Introduce nuestra gorra 'Corridos Tumbados', una pieza única que fusiona lo tumbado con la exclusividad de la marca.",
     infoAdicional: [
@@ -556,7 +556,7 @@ const productos = [
     id: 25,
     nombre: "LA Angel",
     imagen: "../Assets/MC/LA Angel/FullSizeRender (4).webp",
-    precio: "$1,200.00",
+    precio: "$900.00",
     descripcion:
       "Presenta nuestra gorra exclusiva 'LA Angel', una pieza de edición limitada que fusiona el estilo urbano con un toque celestial. Esta gorra negra destaca por su impresionante bordado frontal, combinando la elegancia de las alas con la fuerza de las letras góticas, perfecta para aquellos que buscan expresar su individualidad con un diseño simbólico.",
     infoAdicional: [
