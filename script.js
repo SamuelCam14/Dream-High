@@ -46,6 +46,13 @@ function viewProduct(id) {
 
 // Array de productos utilizando la clase Producto
 const productos = [
+  new Producto(19, "CLOVER AEOM", "./Assets/Clover/All Eyez On Me/IMG_1.webp", 3),
+  new Producto(20, "CLOVER red heart", "./Assets/Clover/Clover Red Heart/FullSizeRender (3).webp", 5),
+  new Producto(21, "CLOVER with love", "./Assets/Clover/From Clover With Love/IMG-F.webp", 5),
+  new Producto(22, "CLOVER LA", "./Assets/Clover/LA Clover/FullSizeRender.webp", 4),
+  new Producto(23, "CLOVER tumbados club", "./Assets/Clover/Tumbados Club/FullSizeRender (1).webp", 5),
+  new Producto(24, "Corridos Tumbados", "./Assets/MC/CT/FullSizeRender (2).webp", 5),
+  new Producto(25, "LA Angel", "./Assets/MC/LA Angel/FullSizeRender (4).webp", 5),
   new Producto(16, "SINNER LOVER", "./Assets/High Stakes/Sinner Lover/FullSizeRender_(17)-transformed.webp", 0),
   new Producto(17, "BIPOLAR", "./Assets/High Stakes/Bipolar/FullSizeRender_(15)-transformed.webp", 0),
   new Producto(18, "RISK RICH", "./Assets/High Stakes/Risk Rich/FullSizeRender_(16)-transformed.webp", 3),
@@ -64,13 +71,6 @@ const productos = [
   new Producto(13, "New York Yankees MLB Classics 59FIFTY Cerrada Roja", "./Assets/New Era/NY Yankees/Red/FullSizeRender_(3)-transformed.webp"),
   new Producto(12, "New York Yankees Black on Black 59FIFTY Cerrada", "./Assets/New Era/NY Yankees/Black/FullSizeRender_(2)-transformed.webp"),
   new Producto(14, "Texas Rangers Authentic Collection 59FIFTY Cerrada", "./Assets/New Era/Texas Rangers/FullSizeRender-transformed.webp"),
-  new Producto(19, "CLOVER AEOM", "./Assets/Clover/All Eyez On Me/IMG_1.webp", 0),
-  new Producto(20, "CLOVER red heart", "./Assets/Clover/Clover Red Heart/FullSizeRender (3).webp", 1),
-  new Producto(21, "CLOVER with love", "./Assets/Clover/From Clover With Love/IMG-F.webp", 1),
-  new Producto(22, "CLOVER LA", "./Assets/Clover/LA Clover/FullSizeRender.webp", 1),
-  new Producto(23, "CLOVER tumbados club", "./Assets/Clover/Tumbados Club/FullSizeRender (1).webp", 1),
-  new Producto(24, "Corridos Tumbados", "./Assets/MC/CT/FullSizeRender (2).webp", 2),
-  new Producto(24, "LA Angel", "./Assets/MC/LA Angel/FullSizeRender (4).webp", 1),
 ];
 
 // Función para generar el HTML de un producto
