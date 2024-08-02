@@ -1,4 +1,4 @@
-// Sticky Nav
+// FUNCION STICKY NAVBAR
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.getElementById('main-nav');
   const hero = document.querySelector('.hero-container');
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateMeasurements() {
     navbarOffset = hero.offsetHeight;
     navbarHeight = navbar.offsetHeight;
-    handleScroll();
+    handleScroll(); // Llamamos a handleScroll para actualizar inmediatamente
   }
 
   window.addEventListener('load', updateMeasurements);
@@ -55,7 +55,7 @@ const productos = [
   new Producto(4, "SPEND MONEY CAMO", "./Assets/JC Hats/Born to Spend Camuflage/FullSizeRender-_7_-transformed.webp"),
   new Producto(7, "SPEND MONEY GREEN", "./Assets/JC Hats/Spend Money Green/FullSizeRender-_11_-transformed.webp"),
   new Producto(6, "SPEND MONEY BLACK", "./Assets/JC Hats/Born to Spend Negra c Rojo/FullSizeRender-_12_-transformed.webp", 0),
-  new Producto(8, "SPEND MONEY GRAY BLUE", "./Assets/JC Hats/Spend Money Gray Blue/FullSizeRender_(1)-transformed.webp"),
+  new Producto(8, "SPEND MONEY GRAY BLUE", "./Assets/JC Hats/Spend Money Gray Blue/FullSizeRender_(1)-transformed.webp", 0),
   new Producto(5, "SPEND MONEY BLACK MESH", "./Assets/JC Hats/Born to Spend Malla Negra/FullSizeRender-_13_-transformed.webp"),
   new Producto(9, "SPEND MONEY BEIGE GREEN", "./Assets/JC Hats/Spend Money Beige Green/FullSizeRender-_10_-transformed.webp"),
   new Producto(10, "Oracle Red Bull Racing Checo Pérez 9FORTY Snapback", "./Assets/New Era/Checo Perez/FullSizeRender_(6)-transformed.webp"),
@@ -64,6 +64,13 @@ const productos = [
   new Producto(13, "New York Yankees MLB Classics 59FIFTY Cerrada Roja", "./Assets/New Era/NY Yankees/Red/FullSizeRender_(3)-transformed.webp"),
   new Producto(12, "New York Yankees Black on Black 59FIFTY Cerrada", "./Assets/New Era/NY Yankees/Black/FullSizeRender_(2)-transformed.webp"),
   new Producto(14, "Texas Rangers Authentic Collection 59FIFTY Cerrada", "./Assets/New Era/Texas Rangers/FullSizeRender-transformed.webp"),
+  new Producto(19, "CLOVER AEOM", "./Assets/Clover/All Eyez On Me/IMG_1.webp", 0),
+  new Producto(20, "CLOVER red heart", "./Assets/Clover/Clover Red Heart/FullSizeRender (3).webp", 1),
+  new Producto(21, "CLOVER with love", "./Assets/Clover/From Clover With Love/IMG-F.webp", 1),
+  new Producto(22, "CLOVER LA", "./Assets/Clover/LA Clover/FullSizeRender.webp", 1),
+  new Producto(23, "CLOVER tumbados club", "./Assets/Clover/Tumbados Club/FullSizeRender (1).webp", 1),
+  new Producto(24, "Corridos Tumbados", "./Assets/MC/CT/FullSizeRender (2).webp", 2),
+  new Producto(24, "LA Angel", "./Assets/MC/LA Angel/FullSizeRender (4).webp", 1),
 ];
 
 // Función para generar el HTML de un producto
