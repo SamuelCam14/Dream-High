@@ -52,6 +52,10 @@ header>div.nav-menu {
     transition: 0.15s;
 }
 
+.product-name {
+    text-transform: uppercase;
+}
+
 /* HEADER CSS END */
 
 
