@@ -46,12 +46,18 @@ function viewProduct(id) {
 
 // Array de productos utilizando la clase Producto
 const productos = [
+  new Producto(26, "Modo Avión", "./Assets/New Religion/Modo Avion/FullSizeRender (2).webp", 1),
+  new Producto(27, "La People", "./Assets/New Religion/La People/FullSizeRender.webp", 3),
+  new Producto(28, "Rich Man", "./Assets/New Religion/Rich Man/IMG.webp", 3),
+  new Producto(29, "LA-47", "./Assets/New Religion/LA47/FullSizeRender (1).webp", 3),
+  new Producto(30, "SKULL", "./Assets/New Religion/Skull/FullSizeRender (4).webp", 1),
+  new Producto(31, "LA-LV", "./Assets/New Religion/LAV/FullSizeRender (3).webp", 1),
   new Producto(19, "CLOVER AEOM", "./Assets/Clover/All Eyez On Me/IMG_1.webp", 0),
-  new Producto(20, "CLOVER red heart", "./Assets/Clover/Clover Red Heart/FullSizeRender (3).webp", 5),
-  new Producto(21, "CLOVER with love", "./Assets/Clover/From Clover With Love/IMG-F.webp", 5),
-  new Producto(22, "CLOVER LA", "./Assets/Clover/LA Clover/FullSizeRender.webp", 4),
-  new Producto(23, "CLOVER tumbados club", "./Assets/Clover/Tumbados Club/FullSizeRender (1).webp", 5),
-  new Producto(24, "Corridos Tumbados", "./Assets/MC/CT/FullSizeRender (2).webp", 1),
+  new Producto(20, "CLOVER red heart", "./Assets/Clover/Clover Red Heart/FullSizeRender (3).webp", 3),
+  new Producto(21, "CLOVER with love", "./Assets/Clover/From Clover With Love/IMG-F.webp", 0),
+  new Producto(22, "CLOVER LA", "./Assets/Clover/LA Clover/FullSizeRender.webp", 1),
+  new Producto(23, "CLOVER tumbados club", "./Assets/Clover/Tumbados Club/FullSizeRender (1).webp", 1),
+  new Producto(24, "Corridos Tumbados", "./Assets/MC/CT/FullSizeRender (2).webp", 0),
   new Producto(25, "LA Angel", "./Assets/MC/LA Angel/FullSizeRender (4).webp", 0),
   new Producto(16, "SINNER LOVER", "./Assets/High Stakes/Sinner Lover/FullSizeRender_(17)-transformed.webp", 0),
   new Producto(17, "BIPOLAR", "./Assets/High Stakes/Bipolar/FullSizeRender_(15)-transformed.webp", 0),
