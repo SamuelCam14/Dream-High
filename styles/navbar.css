@@ -1,0 +1,63 @@
+img.header-logo {
+    width: 175px;
+}
+
+a.btn {
+    border-radius: 3px !important;
+}
+
+button.btn.btn-sm.btn-outline-secondary>a {
+    text-decoration: none;
+    color: #6c757d;
+}
+
+button.btn.btn-sm.btn-outline-secondary>a:hover {
+    color: #fff;
+}
+
+
+/* NAVBAR CSS */
+.navbar {
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #121212;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar.sticky .container {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar .nav {
+    display: flex;
+    align-items: center;
+}
+
+.card-text {
+    text-transform: uppercase;
+}
+
+@media (max-width: 767.98px) {
+    .navbar .container {
+        flex-direction: column;
+    }
+
+    .navbar.sticky .container {
+        flex-direction: row;
+    }
+}
