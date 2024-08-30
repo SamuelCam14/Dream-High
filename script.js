@@ -1,40 +1,23 @@
-// FUNCION STICKY NAVBAR
-document.addEventListener("DOMContentLoaded", function () {
-  const navbar = document.getElementById('main-nav');
-  const hero = document.querySelector('.hero-container');
-  const navbarSpacer = document.getElementById('navbar-spacer');
-  let navbarOffset = navbar.offsetTop;
-  let navbarHeight = navbar.offsetHeight;
+// Configuración base para las URLs
+const BASE_URL = 'https://raw.githubusercontent.com/SamuelCam14/products-dreamhigh/main';
+const API_URL = `${BASE_URL}/products.json`;
 
-  function handleScroll() {
-    let scrollPosition = window.pageYOffset;
-
-    if (scrollPosition >= navbarOffset) {
-      navbar.classList.add('sticky');
-      navbarSpacer.style.height = `${navbarHeight}px`;
-    } else {
-      navbar.classList.remove('sticky');
-      navbarSpacer.style.height = '0px';
-    }
+// Función para construir la URL completa de las imágenes
+function getFullImageUrl(relativePath) {
+  // Verifica si la ruta empieza con '../Assets/' y elimina '../'
+  if (relativePath.startsWith('../Assets/')) {
+    const cleanPath = relativePath.replace('../', './');
+    return cleanPath;
   }
-
-  function updateMeasurements() {
-    navbarOffset = hero.offsetHeight;
-    navbarHeight = navbar.offsetHeight;
-    handleScroll(); // Llamamos a handleScroll para actualizar inmediatamente
-  }
-
-  window.addEventListener('load', updateMeasurements);
-  window.addEventListener('resize', updateMeasurements);
-  window.addEventListener('scroll', handleScroll);
-});
+  return relativePath;
+}
 
 // Definición de la clase Producto
 class Producto {
   constructor(id, nombre, imagen, stock = 1) {
     this.id = id;
     this.nombre = nombre;
-    this.imagen = imagen;
+    this.imagen = getFullImageUrl(imagen);
     this.stock = stock;
   }
 }
@@ -44,42 +27,22 @@ function viewProduct(id) {
   window.location.href = `./Products/product.html?id=${id}`;
 }
 
-// Array de productos utilizando la clase Producto
-const productos = [
-  new Producto(26, "Modo Avión", "./Assets/New Religion/Modo Avion/FullSizeRender (2).webp", 1),
-  new Producto(27, "La People", "./Assets/New Religion/La People/FullSizeRender.webp", 3),
-  new Producto(28, "Rich Man", "./Assets/New Religion/Rich Man/IMG.webp", 3),
-  new Producto(29, "LA-47", "./Assets/New Religion/LA47/FullSizeRender (1).webp", 3),
-  new Producto(30, "SKULL", "./Assets/New Religion/Skull/FullSizeRender (4).webp", 1),
-  new Producto(31, "LA-LV", "./Assets/New Religion/LAV/FullSizeRender (3).webp", 1),
-  new Producto(19, "CLOVER AEOM", "./Assets/Clover/All Eyez On Me/IMG_1.webp", 0),
-  new Producto(20, "CLOVER red heart", "./Assets/Clover/Clover Red Heart/FullSizeRender (3).webp", 3),
-  new Producto(21, "CLOVER with love", "./Assets/Clover/From Clover With Love/IMG-F.webp", 0),
-  new Producto(22, "CLOVER LA", "./Assets/Clover/LA Clover/FullSizeRender.webp", 1),
-  new Producto(23, "CLOVER tumbados club", "./Assets/Clover/Tumbados Club/FullSizeRender (1).webp", 1),
-  new Producto(24, "Corridos Tumbados", "./Assets/MC/CT/FullSizeRender (2).webp", 0),
-  new Producto(25, "LA Angel", "./Assets/MC/LA Angel/FullSizeRender (4).webp", 0),
-  new Producto(16, "SINNER LOVER", "./Assets/High Stakes/Sinner Lover/FullSizeRender_(17)-transformed.webp", 0),
-  new Producto(17, "BIPOLAR", "./Assets/High Stakes/Bipolar/FullSizeRender_(15)-transformed.webp", 0),
-  new Producto(18, "RISK RICH", "./Assets/High Stakes/Risk Rich/FullSizeRender_(16)-transformed.webp", 1),
-  new Producto(1, "ALL EYEZ ON ME - BROWN", "./Assets/High Stakes/Café/FullSizeRender-_9_-transformed.webp", 0),
-  new Producto(2, "JGL - 701", "./Assets/High Stakes/JGL/FullSizeRender-_8_-transformed.webp", 1),
-  new Producto(15, "ALL EYEZ ON ME - BLACK", "./Assets/High Stakes/All Eyez On Me - Black/FullSizeRender_(14)-transformed.webp", 0),
-  new Producto(4, "SPEND MONEY CAMO", "./Assets/JC Hats/Born to Spend Camuflage/FullSizeRender-_7_-transformed.webp"),
-  new Producto(7, "SPEND MONEY GREEN", "./Assets/JC Hats/Spend Money Green/FullSizeRender-_11_-transformed.webp"),
-  new Producto(6, "SPEND MONEY BLACK", "./Assets/JC Hats/Born to Spend Negra c Rojo/FullSizeRender-_12_-transformed.webp", 0),
-  new Producto(8, "SPEND MONEY GRAY BLUE", "./Assets/JC Hats/Spend Money Gray Blue/FullSizeRender_(1)-transformed.webp", 0),
-  new Producto(5, "SPEND MONEY BLACK MESH", "./Assets/JC Hats/Born to Spend Malla Negra/FullSizeRender-_13_-transformed.webp", 0),
-  new Producto(9, "SPEND MONEY BEIGE GREEN", "./Assets/JC Hats/Spend Money Beige Green/FullSizeRender-_10_-transformed.webp"),
-  new Producto(10, "Oracle Red Bull Racing Checo Pérez 9FORTY Snapback", "./Assets/New Era/Checo Perez/FullSizeRender_(6)-transformed.webp"),
-  new Producto(3, "BLACK PANTHER", "./Assets/High Stakes/Pantera Negra/FullSizeRender_(5)-transformed.webp", 0),
-  new Producto(11, "Los Angeles Dodgers MLB Classics 39THIRTY Elástica", "./Assets/New Era/Dodgers/FullSizeRender_(4)-transformed.webp"),
-  new Producto(13, "New York Yankees MLB Classics 59FIFTY Cerrada Roja", "./Assets/New Era/NY Yankees/Red/FullSizeRender_(3)-transformed.webp"),
-  new Producto(12, "New York Yankees Black on Black 59FIFTY Cerrada", "./Assets/New Era/NY Yankees/Black/FullSizeRender_(2)-transformed.webp"),
-  new Producto(14, "Texas Rangers Authentic Collection 59FIFTY Cerrada", "./Assets/New Era/Texas Rangers/FullSizeRender-transformed.webp"),
-];
+// Array para almacenar los productos
+let productos = [];
 
-// Función para generar el HTML de un producto
+// Función para cargar productos desde la API
+async function cargarProductosDesdeAPI() {
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    productos = data.map(item => new Producto(item.id, item.nombre, item.imagen, item.stock));
+    cargarProductos(); // Llamamos a cargarProductos después de obtener los datos
+  } catch (error) {
+    console.error('Error al cargar los productos:', error);
+  }
+}
+
+// Función para generar el HTML de cada producto
 function generarProductoHTML(producto) {
   const agotadoOverlay = producto.stock === 0 ? '<div class="agotado-overlay">Sold Out!</div>' : '';
 
@@ -135,7 +98,41 @@ window.addEventListener('scroll', () => {
 
 // Evento que se ejecuta cuando el DOM está completamente cargado
 document.addEventListener("DOMContentLoaded", function () {
-  cargarProductos();
+  cargarProductosDesdeAPI(); // Cargamos los productos desde la API
+});
+
+
+// ----- ESTETICOS -----
+
+// FUNCION STICKY NAVBAR
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.getElementById('main-nav');
+  const hero = document.querySelector('.hero-container');
+  const navbarSpacer = document.getElementById('navbar-spacer');
+  let navbarOffset = navbar.offsetTop;
+  let navbarHeight = navbar.offsetHeight;
+
+  function handleScroll() {
+    let scrollPosition = window.pageYOffset;
+
+    if (scrollPosition >= navbarOffset) {
+      navbar.classList.add('sticky');
+      navbarSpacer.style.height = `${navbarHeight}px`;
+    } else {
+      navbar.classList.remove('sticky');
+      navbarSpacer.style.height = '0px';
+    }
+  }
+
+  function updateMeasurements() {
+    navbarOffset = hero.offsetHeight;
+    navbarHeight = navbar.offsetHeight;
+    handleScroll();
+  }
+
+  window.addEventListener('load', updateMeasurements);
+  window.addEventListener('resize', updateMeasurements);
+  window.addEventListener('scroll', handleScroll);
 });
 
 // HERO CONTAINER
@@ -151,4 +148,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }, index * 70);
   });
 });
-
