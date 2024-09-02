@@ -1,6 +1,13 @@
 html,
 body {
     background-color: #000;
+    font-family: 'inter', sans-serif;
+    color: #fff;
+}
+
+body {
+    max-width: 1410px;
+    margin: 0 auto;
 }
 
 

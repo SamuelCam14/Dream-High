@@ -2,6 +2,13 @@
 const BASE_URL = 'https://raw.githubusercontent.com/SamuelCam14/products-dreamhigh/main';
 const API_URL = `${BASE_URL}/products.json`;
 
+// IMPORTACIONES
+
+//NAV LOAD
+import { loadFragment } from "./modules/fetchUtils.js";
+loadFragment('./modules/navFooter/nav.html', 'main-nav');
+
+
 // Función para construir la URL completa de las imágenes
 function getFullImageUrl(relativePath) {
   // Verifica si la ruta empieza con '../Assets/' y elimina '../'
@@ -42,26 +49,27 @@ async function cargarProductosDesdeAPI() {
   }
 }
 
-// Función para generar el HTML de cada producto
+
+// generar HTML de cada producto
 function generarProductoHTML(producto) {
   const agotadoOverlay = producto.stock === 0 ? '<div class="agotado-overlay">Sold Out!</div>' : '';
 
   return `
-    <div class="col">
-      <div class="card shadow-sm">
+    <div>
+      <div class="card">
         <div class="product-image-container">
           <img src="${producto.imagen}" alt="${producto.nombre}" onclick="viewProduct(${producto.id})"/>
           ${agotadoOverlay}
         </div>
         <div class="card-body">
           <p class="card-text">${producto.nombre}</p>
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="card-button">
             <div class="btn-group">
-              <button onclick="viewProduct(${producto.id})" type="button" class="btn btn-sm btn-outline-secondary">
-                Ver más
+              <button onclick="viewProduct(${producto.id})" type="button" class="btn">
+                Ver fotos
               </button>
             </div>
-            <small class="text-body-secondary">${producto.stock} Stock</small>
+            <!-- <small class="text-body-secondary">${producto.stock} Stock</small> -->
           </div>
         </div>
       </div>
@@ -69,82 +77,17 @@ function generarProductoHTML(producto) {
   `;
 }
 
-// Variables para la carga progresiva
-let productosVisibles = 6;
-const incremento = 6;
-
-// Función para cargar productos
 function cargarProductos() {
-  const galeria = document.querySelector(".row-cols-1.row-cols-sm-2.row-cols-md-3.g-3");
+  const galeria = document.querySelector(".products-grid");
   galeria.innerHTML = ''; // Limpiamos la galería antes de cargar
 
-  for (let i = 0; i < Math.min(productosVisibles, productos.length); i++) {
-    galeria.innerHTML += generarProductoHTML(productos[i]);
-  }
+  productos.forEach(producto => {
+    galeria.innerHTML += generarProductoHTML(producto);
+  });
 }
-
-// Función para detectar si estamos cerca del final de la página
-function isNearBottom() {
-  return window.innerHeight + window.scrollY >= document.body.offsetHeight - 500;
-}
-
-// Event listener para el scroll
-window.addEventListener('scroll', () => {
-  if (isNearBottom() && productosVisibles < productos.length) {
-    productosVisibles += incremento;
-    cargarProductos();
-  }
-});
 
 // Evento que se ejecuta cuando el DOM está completamente cargado
 document.addEventListener("DOMContentLoaded", function () {
   cargarProductosDesdeAPI(); // Cargamos los productos desde la API
 });
 
-
-// ----- ESTETICOS -----
-
-// FUNCION STICKY NAVBAR
-document.addEventListener("DOMContentLoaded", function () {
-  const navbar = document.getElementById('main-nav');
-  const hero = document.querySelector('.hero-container');
-  const navbarSpacer = document.getElementById('navbar-spacer');
-  let navbarOffset = navbar.offsetTop;
-  let navbarHeight = navbar.offsetHeight;
-
-  function handleScroll() {
-    let scrollPosition = window.pageYOffset;
-
-    if (scrollPosition >= navbarOffset) {
-      navbar.classList.add('sticky');
-      navbarSpacer.style.height = `${navbarHeight}px`;
-    } else {
-      navbar.classList.remove('sticky');
-      navbarSpacer.style.height = '0px';
-    }
-  }
-
-  function updateMeasurements() {
-    navbarOffset = hero.offsetHeight;
-    navbarHeight = navbar.offsetHeight;
-    handleScroll();
-  }
-
-  window.addEventListener('load', updateMeasurements);
-  window.addEventListener('resize', updateMeasurements);
-  window.addEventListener('scroll', handleScroll);
-});
-
-// HERO CONTAINER
-document.addEventListener("DOMContentLoaded", function () {
-  const letters = document.querySelectorAll('.heading .letter');
-
-  letters.forEach((letter, index) => {
-    setTimeout(() => {
-      letter.style.transition = `opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease`;
-      letter.style.opacity = 1;
-      letter.style.transform = 'translateX(0) translateY(0)';
-      letter.style.filter = 'blur(0)';
-    }, index * 70);
-  });
-});
