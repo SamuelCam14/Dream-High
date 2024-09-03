@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
-
 .product-image-container img {
     max-width: 330px;
     max-height: 412px;
@@ -12,13 +11,34 @@
     grid-template-columns: repeat(var(--cols, 4), minmax(100px, 1fr));
     grid-gap: var(--rows-gap, 30px) var(--cols-gap, 30px);
     justify-items: center;
+    margin: 70px 30px;
+}
+
+@font-face {
+    font-family: 'Old London';
+    src: url('../Assets/fonts/OldLondon.woff2') format('woff2'),
+        url('../Assets/fonts/OldLondon.woff') format('woff'),
+        url('../Assets/fonts/OldLondon.ttf') format('truetype'),
+        url('../Assets/fonts/Olondon_.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Old London Alternate';
+    src: url('../Assets/fonts/OldLondonAlternate.woff2') format('woff2'),
+        url('../Assets/fonts/OldLondonAlternate.woff') format('woff'),
+        url('../Assets/fonts/OldLondonAlternate.ttf') format('truetype'),
+        url('../Assets/fonts/fonts/Olondona_.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .container h2 {
     font-weight: 700;
-    font-size: 50px;
     text-align: center;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Old London', sans-serif;
+    font-size: 50px;
 }
 
 button.btn {
@@ -59,7 +79,6 @@ button.btn:hover {
 @media (min-width: 768px) and (max-width: 1024px) {
     .products-grid {
         grid-template-columns: repeat(var(--cols, 3), minmax(100px, 1fr));
-        margin: 0 30px;
     }
 
 }
@@ -67,8 +86,7 @@ button.btn:hover {
 /* SMARTPHONES */
 @media (max-width: 767px) {
     .products-grid {
-        grid-template-columns: repeat(var(--cols, 1), minmax(100px, 1fr));
+        grid-template-columns: repeat(var(--cols, 2), minmax(100px, 1fr));
         margin: 0;
-        /* gap: 35px; */
     }
 }
