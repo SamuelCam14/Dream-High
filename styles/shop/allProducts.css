@@ -4,6 +4,7 @@
     max-width: 330px;
     max-height: 412px;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .products-grid {
