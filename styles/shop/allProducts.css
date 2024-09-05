@@ -17,20 +17,20 @@
 
 @font-face {
     font-family: 'Old London';
-    src: url('../Assets/fonts/OldLondon.woff2') format('woff2'),
-        url('../Assets/fonts/OldLondon.woff') format('woff'),
-        url('../Assets/fonts/OldLondon.ttf') format('truetype'),
-        url('../Assets/fonts/Olondon_.otf') format('opentype');
+    src: url('../../Assets/fonts/OldLondon.woff2') format('woff2'),
+        url('../../Assets/fonts/OldLondon.woff') format('woff'),
+        url('../../Assets/fonts/OldLondon.ttf') format('truetype'),
+        url('../../Assets/fonts/Olondon_.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Old London Alternate';
-    src: url('../Assets/fonts/OldLondonAlternate.woff2') format('woff2'),
-        url('../Assets/fonts/OldLondonAlternate.woff') format('woff'),
-        url('../Assets/fonts/OldLondonAlternate.ttf') format('truetype'),
-        url('../Assets/fonts/fonts/Olondona_.otf') format('opentype');
+    src: url('../../Assets/fonts/OldLondonAlternate.woff2') format('woff2'),
+        url('../../Assets/fonts/OldLondonAlternate.woff') format('woff'),
+        url('../../Assets/fonts/OldLondonAlternate.ttf') format('truetype'),
+        url('../../Assets/fonts/fonts/Olondona_.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
