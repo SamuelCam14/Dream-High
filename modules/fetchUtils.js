@@ -7,3 +7,16 @@ export function loadFragment(url, elementId) {
         })
         .catch(error => console.error(`Error al cargar ${url}:`, error));
 }
+
+// Función para construir la URL completa de las imágenes
+export function getFullImageUrl(relativePath) {
+    // Verifica si la ruta empieza con '../Assets/' y elimina '../'
+    if (relativePath.startsWith('../Assets/')) {
+        const cleanPath = relativePath.replace('../', '../../');
+        return cleanPath;
+    } else if (relativePath.startsWith("./Assets/")) {
+        const cleanPath = relativePath.replace("./", "../../");
+        return cleanPath;
+    }
+    return relativePath;
+}
