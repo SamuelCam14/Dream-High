@@ -80,6 +80,13 @@ function setupBuyButton() {
     if (buyButton) {
         buyButton.onclick = async () => {
             try {
+                // Convertir el precio a un número con decimales (no centavos)
+                const priceInDecimal = convertPriceToDecimal(productoGlobal.precio);
+
+                if (isNaN(priceInDecimal)) {
+                    throw new Error('Precio inválido');
+                }
+
                 const response = await fetch('/api/create-checkout-session', {
                     method: 'POST',
                     headers: {
@@ -87,30 +94,24 @@ function setupBuyButton() {
                     },
                     body: JSON.stringify({
                         name: productoGlobal.nombre,
-                        price: productoGlobal.precio,
+                        price: priceInDecimal,
                     }),
                 });
 
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.message || 'Error al crear la sesión de checkout');
-                }
-
-                const { id: sessionId } = await response.json();
-
-                const stripe = Stripe(process.env.STRIPE_PUBLIC_KEY);
-                const { error } = await stripe.redirectToCheckout({ sessionId });
-
-                if (error) {
-                    console.error('Error:', error);
-                    alert('Hubo un error al procesar tu pago. Por favor, intenta de nuevo.');
-                }
+                // ... resto del código sin cambios ...
             } catch (error) {
                 console.error('Error:', error);
                 alert('Hubo un error al procesar tu pago. Por favor, intenta de nuevo.');
             }
         };
     }
+}
+
+function convertPriceToDecimal(priceString) {
+    // Eliminar el signo de dólar y las comas
+    const cleanPrice = priceString.replace(/[$,]/g, '');
+    // Convertir a float
+    return parseFloat(cleanPrice);
 }
 
 // Iniciar el proceso

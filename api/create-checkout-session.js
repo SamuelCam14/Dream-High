@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
                             product_data: {
                                 name: name,
                             },
-                            unit_amount: Math.round(price * 100), // Convertir a centavos
+                            unit_amount: Math.round(price * 100), // Convertir a centavos aquí
                         },
                         quantity: 1,
                     },
