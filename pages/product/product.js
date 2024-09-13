@@ -98,7 +98,21 @@ function setupBuyButton() {
                     }),
                 });
 
-                // ... resto del código sin cambios ...
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Error al crear la sesión de checkout');
+                }
+
+                const { id: sessionId } = await response.json();
+
+                const stripe = Stripe(window.STRIPE_PUBLIC_KEY);
+                const { error } = await stripe.redirectToCheckout({ sessionId });
+
+                if (error) {
+                    console.error('Error:', error);
+                    alert('Hubo un error al procesar tu pago. Por favor, intenta de nuevo.');
+                }
+
             } catch (error) {
                 console.error('Error:', error);
                 alert('Hubo un error al procesar tu pago. Por favor, intenta de nuevo.');
