@@ -77,3 +77,34 @@ function updateUI() {
 
 // Iniciar el proceso
 initializeProduct();
+
+
+// --- STRIPE CHECKOUT FRONTEND ---
+
+document.querySelector('.buy-btn').addEventListener('click', handlePurchase);
+
+async function handlePurchase() {
+    if (productoGlobal) {
+        try {
+            const response = await fetch('../../api/create-checkout-session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: productoGlobal.nombre,
+                    price: productoGlobal.precio * 100, // Convertir a centavos
+                    quantity: 1, // O la cantidad que desees
+                }),
+            });
+
+            const { id: sessionId } = await response.json();
+
+            // Redirigir a Stripe Checkout
+            const stripe = Stripe(process.env.STRIPE_PUBLIC_KEY);
+            stripe.redirectToCheckout({ sessionId });
+        } catch (error) {
+            console.error('Error al crear la sesión de pago:', error);
+        }
+    }
+}
