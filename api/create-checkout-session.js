@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
             const { name, price } = req.body;
 
             const session = await stripe.checkout.sessions.create({
-                payment_method_types: ['card', 'oxxo', 'bank_transfer'],
+                payment_method_types: ['card', 'oxxo'],
                 line_items: [
                     {
                         price_data: {
