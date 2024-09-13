@@ -1,3 +1,5 @@
+const stripe = Stripe(window.STRIPE_PUBLIC_KEY);
+
 // Nav Load
 import { loadFragment } from "../../modules/fetchUtils.js";
 loadFragment('../../modules/navFooter/nav.html', 'main-nav');
@@ -77,30 +79,35 @@ function setupBuyButton() {
     const buyButton = document.querySelector('.buy-btn');
     if (buyButton) {
         buyButton.onclick = async () => {
-            // Enviar los detalles del producto al backend
-            const response = await fetch('../../api/create-checkout-session.js', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: productoGlobal.nombre,
-                    price: productoGlobal.precio * 100, // precio en centavos (2000 = $20)
-                    quantity: 1 // cantidad por defecto
-                })
-            });
+            try {
+                const response = await fetch('/api/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: productoGlobal.nombre,
+                        price: productoGlobal.precio,
+                    }),
+                });
 
-            if (!response.ok) {
-                console.error('Error al crear la sesión de checkout:', response.statusText);
-                return;
-            }
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Error al crear la sesión de checkout');
+                }
 
-            const session = await response.json();
+                const { id: sessionId } = await response.json();
 
-            // Redirigir a Stripe Checkout
-            const stripe = Stripe('pk_live_51PxuePDi40eM1lxIWdp5P4bycN4AKqFJu3hm8aEpQCIpdDW5TmeSEfHzbNzhRZhZJdrAozomP70f3DjiEqoWbYQh00YEBqzaeI'); // Usa la clave pública
-            const result = await stripe.redirectToCheckout({ sessionId: session.id });
+                const stripe = Stripe(process.env.STRIPE_PUBLIC_KEY);
+                const { error } = await stripe.redirectToCheckout({ sessionId });
 
-            if (result.error) {
-                console.error('Error al redirigir a Checkout:', result.error.message);
+                if (error) {
+                    console.error('Error:', error);
+                    alert('Hubo un error al procesar tu pago. Por favor, intenta de nuevo.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Hubo un error al procesar tu pago. Por favor, intenta de nuevo.');
             }
         };
     }
