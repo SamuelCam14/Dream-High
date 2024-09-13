@@ -66,7 +66,6 @@ async function initializeProduct() {
 }
 
 
-// Slider JS - Crear modulo cuanto ANTES! 
 function updateUI() {
     if (productoGlobal) {
         console.log('Actualizando UI con:', productoGlobal.nombre);
@@ -86,7 +85,7 @@ document.querySelector('.buy-btn').addEventListener('click', handlePurchase);
 async function handlePurchase() {
     if (productoGlobal) {
         try {
-            const response = await fetch('../../api/create-checkout-session', {
+            const response = await fetch('/api/create-checkout-session', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -100,9 +99,13 @@ async function handlePurchase() {
 
             const { id: sessionId } = await response.json();
 
-            // Redirigir a Stripe Checkout
-            const stripe = Stripe(process.env.STRIPE_PUBLIC_KEY);
-            stripe.redirectToCheckout({ sessionId });
+            // Usar la clave pública de Stripe definida globalmente
+            const stripe = Stripe(window.STRIPE_PUBLIC_KEY);
+            const { error } = await stripe.redirectToCheckout({ sessionId });
+
+            if (error) {
+                console.error('Error al redirigir a Checkout:', error);
+            }
         } catch (error) {
             console.error('Error al crear la sesión de pago:', error);
         }
