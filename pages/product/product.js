@@ -78,7 +78,7 @@ function setupBuyButton() {
     if (buyButton) {
         buyButton.onclick = async () => {
             // Enviar los detalles del producto al backend
-            const response = await fetch('/api/create-checkout-session', {
+            const response = await fetch('../../api/create-checkout-session.js', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
