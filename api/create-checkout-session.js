@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 
             // Calcular el precio con el cargo adicional del 7% si pagan a meses
             let finalPrice = price;
-            if (installments) {
+            if (installments && (installments === 3 || installments === 6)) {
                 finalPrice = price * 1.07; // Añadir 7% al precio original
             }
 
@@ -20,21 +20,16 @@ module.exports = async (req, res) => {
                             product_data: {
                                 name: name,
                             },
-                            unit_amount: Math.round(finalPrice * 100), // Convertir a centavos aquí
+                            unit_amount: Math.round(finalPrice * 100), // Convertir a centavos
                         },
                         quantity: 1,
                     },
                 ],
                 mode: 'payment',
                 payment_method_options: {
-                    card: installments ? {
+                    card: installments && (installments === 3 || installments === 6) ? {
                         installments: {
                             enabled: true,
-                            plan: {
-                                count: parseInt(installments), // Número de meses
-                                interval: 'month',
-                                type: 'fixed_count',
-                            },
                         },
                     } : undefined,
                 },
