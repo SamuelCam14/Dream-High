@@ -76,11 +76,9 @@ function updateUI() {
 
 // Configura el botón de compra
 function setupBuyButton() {
-    const buyButton = document.querySelector('#payment-form');
+    const buyButton = document.querySelector('.buy-btn');
     if (buyButton) {
-        buyButton.onsubmit = async (event) => {
-            event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
-
+        buyButton.onclick = async () => {
             try {
                 // Convertir el precio a un número con decimales (no centavos)
                 const priceInDecimal = convertPriceToDecimal(productoGlobal.precio);
@@ -88,9 +86,6 @@ function setupBuyButton() {
                 if (isNaN(priceInDecimal)) {
                     throw new Error('Precio inválido');
                 }
-
-                // Obtener la opción de pago seleccionada
-                const installments = document.querySelector('#installments').value;
 
                 const response = await fetch('/api/create-checkout-session', {
                     method: 'POST',
@@ -100,7 +95,6 @@ function setupBuyButton() {
                     body: JSON.stringify({
                         name: productoGlobal.nombre,
                         price: priceInDecimal,
-                        installments: installments ? parseInt(installments) : null,
                     }),
                 });
 
