@@ -44,8 +44,14 @@
                     <p class="product-description"></p>
                     <p>Stock disponible: <span class="product-stock"></span></p>
                     <div class="product-btn">
-                        <button class="link-copy btn">C</button>
-                        <button class="buy-btn btn">Comprar</button>
+                        <form id="payment-form">
+                            <select name="installments" id="installments">
+                                <option value="">Pago de contado</option>
+                                <option value="3">3 meses</option>
+                                <option value="6">6 meses</option>
+                            </select>
+                            <button class="btn buy-btn" type="submit">Pagar</button>
+                        </form>
                     </div>
                 </div>
             </div>
