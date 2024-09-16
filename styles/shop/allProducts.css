@@ -30,7 +30,7 @@
     src: url('../../Assets/fonts/OldLondonAlternate.woff2') format('woff2'),
         url('../../Assets/fonts/OldLondonAlternate.woff') format('woff'),
         url('../../Assets/fonts/OldLondonAlternate.ttf') format('truetype'),
-        url('../../Assets/fonts/fonts/Olondona_.otf') format('opentype');
+        url('../../Assets/fonts/Olondona.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
