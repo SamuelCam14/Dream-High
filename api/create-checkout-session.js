@@ -5,14 +5,17 @@ module.exports = async (req, res) => {
         try {
             const { name, price, installments } = req.body;
 
+            // Convertir installments a número si es string
+            const installmentsNumber = installments ? parseInt(installments, 10) : null;
+
             // Calcular el precio con el cargo adicional del 7% si pagan a meses
             let finalPrice = price;
-            if (installments && (installments === 3 || installments === 6)) {
+            if (installmentsNumber && (installmentsNumber === 3 || installmentsNumber === 6)) {
                 finalPrice = price * 1.07; // Añadir 7% al precio original
             }
 
             const session = await stripe.checkout.sessions.create({
-                payment_method_types: ['card', 'oxxo'],
+                payment_method_types: ['card'],
                 line_items: [
                     {
                         price_data: {
@@ -26,13 +29,20 @@ module.exports = async (req, res) => {
                     },
                 ],
                 mode: 'payment',
-                payment_method_options: {
-                    card: installments && (installments === 3 || installments === 6) ? {
-                        installments: {
-                            enabled: true,
+                payment_intent_data: installmentsNumber ? {
+                    setup_future_usage: 'off_session',
+                    payment_method_options: {
+                        card: {
+                            installments: {
+                                enabled: true,
+                                plan: {
+                                    type: 'fixed_count',
+                                    count: installmentsNumber,
+                                },
+                            },
                         },
-                    } : undefined,
-                },
+                    },
+                } : undefined,
                 success_url: `${req.headers.origin}/success.html?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${req.headers.origin}/cancel.html`,
             });
