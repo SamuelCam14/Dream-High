@@ -20,13 +20,6 @@ module.exports = async (req, res) => {
                     },
                 ],
                 mode: 'payment',
-                payment_method_options: {
-                    card: {
-                        installments: {
-                            enabled: true,
-                        }
-                    }
-                },
                 shipping_address_collection: {
                     allowed_countries: ['MX'], // Lista de países permitidos para la dirección de envío
                 },
