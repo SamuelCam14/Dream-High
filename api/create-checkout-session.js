@@ -19,6 +19,7 @@ module.exports = async (req, res) => {
                         quantity: 1,
                     },
                 ],
+
                 mode: 'payment',
                 shipping_address_collection: {
                     allowed_countries: ['MX'], // Lista de países permitidos para la dirección de envío
