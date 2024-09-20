@@ -26,14 +26,15 @@
     width: auto;
     height: auto;
     object-fit: contain;
-    border-radius: 15px;
+    border-radius: 8px;
 }
 
 .slider-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(43, 43, 43, 0.5);
+    color: #fff;
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -47,7 +48,7 @@
 }
 
 .slider-button:hover {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(20, 20, 20, 0.8);
 }
 
 .prev {

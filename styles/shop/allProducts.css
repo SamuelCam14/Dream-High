@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
-.product-image-container img {
+.product-image-container {
+    width: 100%;
     max-width: 330px;
-    max-height: 412px;
-    border-radius: 15px;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
     cursor: pointer;
 }
+
 
 .products-grid {
     display: grid;
@@ -42,38 +52,24 @@
     font-size: 50px;
 }
 
-button.btn {
-    background-color: #262626;
-    color: #fff;
-    padding: 10px 35px;
-    border: 0;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 17px;
-    font-family: 'DM Sans', sans-serif;
-}
-
-button.btn:hover {
-    background-color: #1fa360;
-    color: #262626;
-}
-
 .card-text {
     color: white;
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.card-price {
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
-}
-
-.card-button {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 15px;
+    margin: 0;
 }
 
 /* TABLETS */
@@ -89,5 +85,10 @@ button.btn:hover {
     .products-grid {
         grid-template-columns: repeat(var(--cols, 2), minmax(100px, 1fr));
         margin: 0;
+    }
+
+    .card-text {
+        font-size: 14px;
+        font-weight: 500;
     }
 }

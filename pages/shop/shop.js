@@ -3,36 +3,28 @@ const BASE_URL = 'https://raw.githubusercontent.com/SamuelCam14/products-dreamhi
 const API_URL = `${BASE_URL}/products.json`;
 
 // IMPORTACIONES
-
-//NAV LOAD
+////NavLoader
 import { loadFragment } from "../../modules/fetchUtils.js";
 loadFragment('../../modules/navFooter/nav.html', 'main-nav');
+
+////IMG LOADER
+import { getFullImageUrl } from "../../modules/fetchUtils.js";
+
 
 // REDIRECCION PRODUCTOS
 function viewProduct(id) {
   window.location.href = `../product/product.html?id=${id}`;
 }
 
-// Función para construir la URL completa de las imágenes
-function getFullImageUrl(relativePath) {
-  // Verifica si la ruta empieza con '../Assets/' y elimina '../'
-  if (relativePath.startsWith('../Assets/')) {
-    const cleanPath = relativePath.replace('../', '../../');
-    return cleanPath;
-  } else if (relativePath.startsWith("./Assets/")) {
-    const cleanPath = relativePath.replace("./", "../../");
-    return cleanPath;
-  }
-  return relativePath;
-}
 
 // Definición de la clase Producto
 class Producto {
-  constructor(id, nombre, imagen, stock = 1) {
+  constructor(id, nombre, imagen, stock = 1, precio) {
     this.id = id;
     this.nombre = nombre;
     this.imagen = getFullImageUrl(imagen);
     this.stock = stock;
+    this.precio = precio;
   }
 }
 
@@ -44,7 +36,7 @@ async function cargarProductosDesdeAPI() {
   try {
     const response = await fetch(API_URL);
     const data = await response.json();
-    productos = data.map(item => new Producto(item.id, item.nombre, item.imagen, item.stock));
+    productos = data.map(item => new Producto(item.id, item.nombre, item.imagen, item.stock, item.precio));
     cargarProductos(); // Llamamos a cargarProductos después de obtener los datos
   } catch (error) {
     console.error('Error al cargar los productos:', error);
@@ -59,18 +51,12 @@ function generarProductoHTML(producto) {
     <div>
       <div class="card">
         <div class="product-image-container">
-          <img src="${producto.imagen}" alt="${producto.nombre}" class="product-image"/>
+          <img src="${producto.imagen}" alt="${producto.nombre}" data-id="${producto.id}" class="product-image"/>
           ${agotadoOverlay}
         </div>
         <div class="card-body">
           <p class="card-text">${producto.nombre}</p>
-          <div class="card-button">
-            <div class="btn-group">
-              <button type="button" class="btn view-product-btn" data-id="${producto.id}">
-                Ver fotos
-              </button>
-            </div>
-          </div>
+          <p class="card-price">${producto.precio}</p>
         </div>
       </div>
     </div>
@@ -81,6 +67,7 @@ function cargarProductos() {
   const galeria = document.querySelector(".products-grid");
   galeria.innerHTML = ''; // Limpiamos la galería antes de cargar
 
+  // Iterar sobre los productos y generar el HTML
   productos.forEach(producto => {
     galeria.innerHTML += generarProductoHTML(producto);
   });
@@ -89,15 +76,14 @@ function cargarProductos() {
   galeria.addEventListener("click", function (event) {
     const target = event.target;
 
+    // Comprobar si se hizo clic en una imagen del producto
     if (target.classList.contains("product-image")) {
-      const id = target.closest(".card").querySelector(".view-product-btn").getAttribute("data-id");
-      viewProduct(id);
-    } else if (target.classList.contains("view-product-btn")) {
-      const id = target.getAttribute("data-id");
-      viewProduct(id);
+      const id = target.getAttribute("data-id"); // Obtener el ID desde el data-id de la imagen
+      viewProduct(id); // Llamar a la función viewProduct con el ID del producto
     }
   });
 }
+
 
 
 // Evento que se ejecuta cuando el DOM está completamente cargado

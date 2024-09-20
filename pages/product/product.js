@@ -57,7 +57,8 @@ async function initializeProduct() {
 
             // Funciones cuando se encuentre el producto
             updateUI();
-            setupBuyButton(); // Configura el botón de compra
+            setupBuyButton();
+            sizeDisplay();
         } else {
             console.log('Producto no encontrado');
         }
@@ -130,3 +131,31 @@ function convertPriceToDecimal(priceString) {
 
 // Iniciar el proceso
 initializeProduct();
+
+// Tallas para Sneakers
+const sizeDisplay = () => {
+    const sizes = productoGlobal.infoAdicional;
+    const sizeContainer = document.querySelector('.size-selector');
+
+    if (sizes.length >= 1) {
+        const label = document.createElement('label');
+        label.setAttribute('for', 'sizes');
+        label.textContent = 'Selecciona tu talla:';
+        sizeContainer.appendChild(label);
+
+        const select = document.createElement('select');
+        select.id = 'sizes';
+        select.className = 'size-dropdown';
+        sizeContainer.appendChild(select);
+
+        for (const size of sizes) {
+            console.log(size);
+
+            const option = document.createElement('option');
+            option.value = size.talla;
+            option.textContent = size.talla;
+            document.querySelector('.size-dropdown').appendChild(option);
+        };
+    }
+
+};
