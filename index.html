@@ -1,16 +1,55 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Redirigiendo...</title>
-    <script type="text/javascript">
-        window.location.href = "./pages/shop/shop.html";
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream High - Tienda de gorras</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
 </head>
 
 <body>
-    <p>Redirigiendo... Si no eres redirigido automáticamente, haz <a href="./pages/shop/shop.html">click aquí</a>.</p>
+    <header>
+        <nav id="main-nav">
+            <!-- Menú de navegación dinámico -->
+        </nav>
+        <section class="hero-container">
+            <div class="hero">
+                <h1 class="heading" aria-label="nebula">
+                    <span class="word"><span class="letter">D</span><span class="letter">r</span><span
+                            class="letter">e</span><span class="letter">a</span><span class="letter">m</span></span>
+                    <span class="word"><span class="letter">H</span><span class="letter">i</span><span
+                            class="letter">g</span><span class="letter">h</span></span>
+                </h1>
+            </div>
+            <div class="icon-container">
+                <div class="field">
+                    <div class="mouse"></div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="product-available">
+            <div class="container">
+                <div class="title-section">
+                    <h2>Drops disponibles</h2>
+                    <a href="./pages/shop/shop.html">Ver Más</a>
+                </div>
+                <div class="product-slider">
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+                            <!-- Productos generados dinámicamente por stock -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./modules/heroContainer/hero.js"></script>
+    <script src="./pages/home/script.js" type="module"></script>
 </body>
 
 </html>

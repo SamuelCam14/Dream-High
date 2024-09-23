@@ -96,6 +96,24 @@ section.product {
     color: black;
 }
 
+/* ----- Size Selector ----- */
+
+.size-selector {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    align-items: center;
+}
+
+.size-selector select {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    color: black;
+}
+
 /* ----- Responsive -----  */
 
 @media (max-width: 767px) {
@@ -118,19 +136,4 @@ section.product {
         font-size: 30px;
         text-transform: capitalize;
     }
-}
-
-.size-selector {
-    display: flex;
-    gap: 20px;
-    margin: 20px 0;
-    align-items: center;
-}
-
-.size-selector select {
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'DM Sans', sans-serif;
 }
