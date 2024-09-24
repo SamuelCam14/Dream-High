@@ -1,0 +1,36 @@
+/* --- Mobile Responsive ---  */
+
+@media screen and (max-width: 768px) {
+
+    .mobile-div {
+        display: flex;
+        justify-content: center;
+    }
+
+    a.btn {
+        padding: 10px 80px;
+        margin-top: 15px;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    a.desktop {
+        display: none;
+    }
+
+    /* Video Container  */
+
+    .video-container video {
+        width: 100%;
+        height: auto;
+    }
+
+    .text-container {
+        margin-top: 20px;
+        font-family: 'Helvetica Now Display', sans-serif;
+        font-weight: 300;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+}

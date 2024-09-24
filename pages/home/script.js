@@ -55,11 +55,14 @@ selectedProducts.forEach(product => {
 new Splide('.splide', {
     type: 'loop',
     perPage: 3,
+    autoScroll: {
+        speed: 1.5,
+    },
     breakpoints: {
         768: {
             perPage: 2,
             gap: '1rem',
-            autoWidth: false,
+            fixedWidth: '300px',
         }
     },
     focus: 'center',

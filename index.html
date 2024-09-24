@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream High - Tienda de gorras</title>
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/fontImport.css">
+    <link rel="stylesheet" href="./styles/home/index.css">
+    <link rel="stylesheet" href="./styles/home/mobileIndex.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 
@@ -34,10 +36,10 @@
     </header>
     <main>
         <section class="product-available">
-            <div class="container">
-                <div class="title-section">
-                    <h2>Drops disponibles</h2>
-                    <a href="./pages/shop/shop.html">Ver Más</a>
+            <div class="flex-center">
+                <div class="title-section container">
+                    <h3>Productos Destacados</h3>
+                    <a class="desktop btn" href="./pages/shop/shop.html">Ver Todo</a>
                 </div>
                 <div class="splide">
                     <div class="splide__track">
@@ -45,6 +47,23 @@
                             <!-- Los productos generados dinámicamente irán aquí -->
                         </ul>
                     </div>
+                </div>
+                <div class="mobile-div">
+                    <a class="mobile btn" href="./pages/shop/shop.html">Ver todo</a>
+                </div>
+            </div>
+        </section>
+        <section class="hat-video">
+            <div class="container">
+                <div class="videoText-header">
+                    <h3>¿Por qué Dream High?</h3>
+                </div>
+                <div class="video-container">
+                    <video src="./Assets/Video/HomeHat.mp4" autoplay loop muted loading="lazy"></video>
+                </div>
+                <div class="text-container">
+                    <p>Porque en Dream High nos preocupamos por la calidad de nuestros productos, por eso trabajamos con
+                        los mejores materiales para que puedas lucir un producto de calidad.</p>
                 </div>
             </div>
         </section>

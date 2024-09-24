@@ -1,0 +1,273 @@
+html,
+body {
+    background-color: #050505;
+    font-family: 'Helvetica Now Display', sans-serif;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 70px;
+}
+
+
+/* HERO SECTION */
+@font-face {
+    font-family: 'Old London';
+    src: url('/Assets/fonts/OldLondon.woff2') format('woff2'),
+        url('/Assets/fonts/OldLondon.woff') format('woff'),
+        url('/Assets/fonts/OldLondon.ttf') format('truetype'),
+        url('/Assets/fonts/Olondon_.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font: 500 100%/1 'Old London', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('/Assets/fondo.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.heading {
+    font-family: 'Old London', serif;
+}
+
+.alternate-heading {
+    font-family: 'Old London Alternate', serif;
+}
+
+.hero-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    background-position: inherit;
+    filter: blur(7px);
+}
+
+.heading {
+    font-size: clamp(5rem, 16vw, 16.5rem);
+    color: #fff;
+    text-align: center;
+    transform-origin: 60% 60%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.heading .word {
+    display: inline-block;
+    margin: 0 0.1em;
+}
+
+.heading .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(20px) translateY(20px);
+    filter: blur(10px);
+}
+
+
+/* ICON ANIMATED */
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.icon-container {
+    position: absolute;
+    bottom: 100px;
+}
+
+.mouse {
+    width: 20px;
+    height: 35px;
+    border: 2px solid #c9d6df;
+    border-radius: 60px;
+    position: relative;
+
+    &::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #c9d6df;
+        border-radius: 50%;
+        opacity: 1;
+        animation: wheel 2s infinite;
+        -webkit-animation: wheel 1.25s infinite;
+    }
+}
+
+@keyframes wheel {
+    to {
+        opacity: 0;
+        top: 20px;
+    }
+}
+
+@-webkit-keyframes wheel {
+    to {
+        opacity: 0;
+        top: 20px;
+    }
+}
+
+.splide {
+    width: 100%;
+}
+
+/* --- Slogan H2 --- */
+.slogan h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    text-shadow: 2px 5px 6px rgba(88, 88, 88, 0.651);
+    line-height: .6;
+    margin-top: 45px;
+}
+
+span.h2-span {
+    font-size: 1.5rem;
+}
+
+/* --- Productos disponibles ---  */
+
+.product-image-container {
+    width: 100%;
+    max-width: 330px;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* --- Product Available --- */
+
+.title-section {
+    text-align: center;
+    margin: 2rem;
+}
+
+.title-section h3 {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    text-transform: uppercase;
+    /* font-family: "Nike Futura ND", sans-serif; */
+    font-family: "Helvetica Now Display", sans-serif;
+    font-weight: 700;
+}
+
+a.btn {
+    background-color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #050505;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.hat-video {
+    margin-top: 55px;
+}
+
+
+
+h3 {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+}
+
+.text-container {
+    margin-top: 20px;
+    font-family: 'Helvetica Now Display', sans-serif;
+    font-weight: 300;
+    padding: 0 20px;
+    text-align: center;
+}
+
+@media screen and (min-width: 769px) {
+
+    .text-container {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        max-width: 1410px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    a.btn {
+        padding: 10px;
+        width: 200px;
+    }
+
+    a.btn:hover {
+        background-color: #17ef97;
+        color: #050505;
+    }
+
+    .mobile-div {
+        display: none;
+    }
+
+    .flex-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Hat Video  */
+
+    .hat-video {
+        margin-top: 55px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hat-video .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .video-container {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 21 / 9;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    .video-container video {
+        width: 100%;
+    }
+}
