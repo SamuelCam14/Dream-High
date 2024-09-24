@@ -4,6 +4,7 @@ body {
     font-family: 'inter', sans-serif;
     color: #fff;
     margin: 0;
+    margin-bottom: 70px;
 }
 
 
@@ -144,4 +145,31 @@ body {
     object-fit: cover;
     border-radius: 8px;
     cursor: pointer;
+}
+
+/* --- Product Available --- */
+
+.title-section {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-section a {
+    background-color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #050505;
+    text-decoration: none;
+    padding: 12px 30px;
+}
+
+.title-section a:hover {
+    background-color: #17ef97;
+    ;
+    color: #050505;
 }

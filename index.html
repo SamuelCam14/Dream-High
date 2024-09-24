@@ -7,6 +7,8 @@
     <title>Dream High - Tienda de gorras</title>
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+
 </head>
 
 <body>
@@ -37,17 +39,20 @@
                     <h2>Drops disponibles</h2>
                     <a href="./pages/shop/shop.html">Ver Más</a>
                 </div>
-                <div class="product-slider">
-                    <div class="carousel-container">
-                        <div class="carousel-track">
-                            <!-- Productos generados dinámicamente por stock -->
-                        </div>
+                <div class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list carousel-container">
+                            <!-- Los productos generados dinámicamente irán aquí -->
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
     <script src="./modules/heroContainer/hero.js"></script>
     <script src="./pages/home/script.js" type="module"></script>
 </body>

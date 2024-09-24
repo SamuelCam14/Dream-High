@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "stripe": "^16.11.0"
   }
 }
