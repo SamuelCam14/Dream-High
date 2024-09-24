@@ -62,7 +62,7 @@ new Splide('.splide', {
         768: {
             perPage: 2,
             gap: '1rem',
-            fixedWidth: '300px',
+            fixedWidth: '270px',
         }
     },
     focus: 'center',
