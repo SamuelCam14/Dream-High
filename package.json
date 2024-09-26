@@ -12,5 +12,8 @@
   "dependencies": {
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "stripe": "^16.11.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
   }
 }

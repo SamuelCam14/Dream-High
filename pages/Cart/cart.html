@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carrito</title>
+    <link href="../../src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn {
+            background-color: white;
+            border: 0;
+            margin: 15px 0;
+            color: black;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #17ef97;
+        }
+
+        .green-text {
+            color: #17ef97;
+        }
+
+    </style>
+</head>
+
+<body class="bg-neutral-950 text-white">
+<header>
+    <nav id="main-nav">
+        <!--        navbar generada dinaicamente-->
+    </nav>
+</header>
+<main class="flex flex-col justify-center content-center h-screen">
+    <div class="main-carrito">
+    <h2 class="text-2xl font-semibold text-center mt-20 mb-10">Carrito de Compras</h2>
+    <section class="carrito py-10">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="rounded-lg shadow-lg p-6">
+                <ul role="list" class="divide-y divide-neutral-800">
+                    <li class="flex py-6">
+                        <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-700">
+                            <img src="../../Assets/New%20Religion/Rich%20Man/IMG.webp" alt="Producto 1" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="ml-4 flex-1 flex-col">
+                            <div class="flex justify-between text-base font-medium">
+                                <h3><a href="#" class="text-white hover:text-gray-300">Producto 1</a></h3>
+                                <p class="ml-4">$90.00</p>
+                            </div>
+                            <div class="flex flex-1 items-end justify-between text-sm">
+                                <p class="text-gray-400">Cantidad 1</p>
+                                <button type="button" class="font-medium text-red-400 hover:text-red-500">Eliminar</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="flex py-6">
+                        <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-700">
+                            <img src="../../Assets/New%20Religion/Modo%20Avion/FullSizeRender%20(2).webp" alt="Producto 2" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="ml-4 flex-1 flex-col">
+                            <div class="flex justify-between text-base font-medium">
+                                <h3><a href="#" class="text-white hover:text-gray-300">Producto 2</a></h3>
+                                <p class="ml-4">$32.00</p>
+                            </div>
+                            <div class="flex flex-1 items-end justify-between text-sm">
+                                <p class="text-gray-400">Cantidad 1</p>
+                                <button type="button" class="font-medium text-red-400 hover:text-red-500">Eliminar</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="border-t border-neutral-800 px-4 py-6 mt-6">
+                <div class="flex justify-between text-base font-medium">
+                    <p>Subtotal</p>
+                    <p>$122.00</p>
+                </div>
+                <p class="mt-0.5 text-sm text-gray-400">Envío e impuestos calculados en el pago.</p>
+                <div class="mt-6">
+                    <a href="#" class="flex items-center justify-center rounded-md btn px-6 py-3 text-base font-medium text-black shadow-sm hover:bg-green-500">Pagar</a>
+                </div>
+                <div class="mt-6 flex justify-center text-center text-sm text-gray-400">
+                    <p>
+                        o
+                        <button type="button" class="font-medium green-text">
+                            Continuar comprando
+                            <span aria-hidden="true"> &rarr;</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+</main>
+
+<script src="./cart.js" type="module"></script>
+</body>
+</html>
