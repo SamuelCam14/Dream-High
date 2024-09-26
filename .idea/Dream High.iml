@@ -8,5 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="@splidejs/splide-extension-auto-scroll" level="application" />
+    <orderEntry type="library" name="@splidejs/splide" level="application" />
   </component>
 </module>
